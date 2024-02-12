@@ -1,6 +1,7 @@
 :root {
   --color-blue: #005cB0;
   --color-light-blue: rgba(0, 91, 176, 0.1);
+  --color-dark-blue: #06223c;
   --color-black: #2e2e2e;
   --color-plain-white: #ffffff;
   --color-gray: #e6e6e6;
@@ -21,7 +22,10 @@
 }
 
 body {
-  min-height: 100vh;
+  min-height: 80vh;
+  max-width: 64rem;
+  border: 2px solid red;
+  margin: 0 auto;
 }
 
 img,
@@ -32,23 +36,102 @@ video {
   max-width: 100%;
 }
 
-img {
-  width: 64px;
+.img-left-nav {
+  width: 80px;
+}
+
+.header {
+  height: 100px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.left-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
 }
 
 .search {
   width: 280px;
   height: 40px;
-  background-color: var(--color-plain-white);
-  border-width: 2px;
-  border-style: solid;
-  border-image: linear-gradient(to right, var(--color-blue), var(--color-light-blue)) 1;
-  padding: 4px 32px;
-  display: grid;
-  place-items: center end;
+  position: relative;
+}
+
+.search::before {
+  content: "";
+  position: absolute;
   border-radius: 20px;
+  inset: 0;
+  border: 2px solid transparent;
+  background: linear-gradient(to right, var(--color-blue), var(--color-light-blue)) border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
 
 .search p {
   color: var(--color-dark-gray);
+  display: inline-block;
+  padding-top: 10px;
+  padding-left: 32%;
+}
+
+.premium {
+  width: 140px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-blue), var(--color-dark-blue));
+  border-radius: 20px;
+  color: var(--color-plain-white);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+i {
+  color: var(--color-dark-blue);
+  font-size: 1.5rem;
+  padding: 0 10px;
+}
+
+.right-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.icon-div {
+  display: flex;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 50px;
+}
+
+.left-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-main h1 {
+  font-size: 7rem;
+  letter-spacing: 1rem;
+  color: var(--color-gray);
+}
+
+.left-main img {
+  width: 400px;
 }
